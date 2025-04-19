@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        img { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <h1>Sales Report</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>{{ sales_data[0].keys()|join('</th><th>') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in sales_data %}
+            <tr>
+                <td>{{ item.values()|join('</td><td>') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Sales Chart</h2>
+    <img src="{{ chart_image }}" alt="Sales Chart">
+</body>
+</html>

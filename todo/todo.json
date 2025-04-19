@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "task": "??Python",
+        "done": false,
+        "due_date": "2025-12-31",
+        "priority": 1
+    },
+    {
+        "id": 2,
+        "task": "§Õ????",
+        "done": false,
+        "due_date": "2025-12-30",
+        "priority": 2
+    },
+    {
+        "id": 3,
+        "task": "??Python",
+        "done": false,
+        "due_date": "2025-12-31",
+        "priority": 1
+    },
+    {
+        "id": 4,
+        "task": "§Õ????",
+        "done": false,
+        "due_date": "2025-12-30",
+        "priority": 2
+    },
+    {
+        "id": 5,
+        "task": "????python",
+        "done": false
+    }
+]
