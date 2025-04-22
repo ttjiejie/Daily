@@ -10,11 +10,11 @@ RED = "\033[31m"
 RESET = "\033[0m"
 
 # 加载.env文件中的环境变量
-#load_dotenv()
-# API_KEY = os.getenv('API_KEY')
+load_dotenv()
+API_KEY = os.getenv('API_KEY')
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
-def get_weather(city_name, proxy=None, max_retries=3):
+def get_weather(city_name, proxy=None):
     """
     获取指定城市的天气信息
     :param city_name: 城市名称
@@ -23,7 +23,7 @@ def get_weather(city_name, proxy=None, max_retries=3):
     """
     params = {
         'q': city_name,
-        'appid': '8fd72ea1030248f83cd774f87b5b3ba9',
+        'appid': API_KEY,
         'units': 'metric',  # 使用摄氏度
         'lang': 'zh_cn'  # 中文结果
     }
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         proxy = {"http": "http://10.10.1.10:3128"} if use_proxy == 'y' else None
         city = input("请输入要查询的城市名称: ")
         weather = get_weather(city, proxy=proxy)
-        
+
         if weather:
             print(f"\n城市: {weather['city']}")
             print(f"温度: {weather['temperature']}°C")
@@ -132,7 +132,7 @@ if __name__ == "__main__":
         cities = [city.strip() for city in cities if city.strip()]
         proxy = {"http": "http://10.10.1.10:3128"}
         weather_list = batch_query(cities, proxy=proxy)
-        
+
         if weather_list:
             for weather in weather_list:
                 print(f"\n城市: {weather['city']}")
